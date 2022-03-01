@@ -1,12 +1,14 @@
 const searchPhone=()=>{
     document.getElementById('phone-contaniner').innerHTML=""
    
-    //document.getElementById('spinner').style.display='block'
-    //document.getElementById('spinner1').style.display='block'
+    document.getElementById('spinner').style.display='block'
+    document.getElementById('spinner1').style.display='block'
 
     const searchtext=document.getElementById('input-value').value
     if(searchtext==''){
         document.getElementById('error').style.display='block'
+        document.getElementById('spinner').style.display='none'
+        document.getElementById('spinner1').style.display='none'
     }
     else{
         document.getElementById('error').style.display='none'
@@ -22,7 +24,20 @@ const loadPhone=(searchtext)=>{
     
     fetch(url)
     .then(res=>res.json())
-    .then(phones=>displayPhone(phones.data.slice(0,6)))
+    .then(phones=>{
+        
+        if(phones.data.length==0){
+            document.getElementById('spinner').style.display='block'
+            document.getElementById('spinner1').style.display='block'
+            return
+        }
+
+        else{
+            displayPhone(phones.data.slice(0,6))
+            document.getElementById('spinner').style.display='none'
+            document.getElementById('spinner1').style.display='none'
+        }
+    })
         
         
 }
@@ -34,9 +49,9 @@ const displayPhone=(phones)=>{
         const parent=document.getElementById('phone-contaniner')
         const div=document.createElement('div')
             div.innerHTML=`
-                <div class="card border mb-3   ">
+                <div class="card border border-2 border-secondery mb-3   ">
                         <div class="phone-pic text-center">
-                            <img class="w-100 mb-3" src="${phone.image}" alt="">
+                            <img class="w-75 mb-3" src="${phone.image}" alt="">
                         </div>
                         
                         <h5 class="text-center mb-3" ><span class="text-danger">Ph_Name:</span> ${phone.phone_name}</h5>
