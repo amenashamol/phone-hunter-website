@@ -25,12 +25,28 @@ const displayPhone=(phones)=>{
     
     for(const phone of phones){
        console.log(phone)
-        
+        const parent=document.getElementById('phone-contaniner')
+        const div=document.createElement('div')
+            div.innerHTML=`
+                <div class="card border ">
+                        <div class="phone-pic">
+                            <img  src="" alt="">
+                        </div>
+                        <h4>Brand:</h4>
+                        <h4>Ph_Name:</h4>
+                        <div class="allbutton">
+                            <button class="btn btn-danger" >delete</button>
+                            <button class="btn btn-success" >details</button>
+                        </div>
+                        
+                </div>`
+         
+         parent.appendChild(div)
+         
+    }  
        
    
     
-
-}
 
 }
 
