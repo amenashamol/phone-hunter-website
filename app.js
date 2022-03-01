@@ -1,4 +1,9 @@
 const searchPhone=()=>{
+    document.getElementById('phone-contaniner').innerHTML=""
+   
+    //document.getElementById('spinner').style.display='block'
+    //document.getElementById('spinner1').style.display='block'
+
     const searchtext=document.getElementById('input-value').value
     if(searchtext==''){
         document.getElementById('error').style.display='block'
@@ -14,11 +19,12 @@ const searchPhone=()=>{
 
 const loadPhone=(searchtext)=>{
     const url=`https://openapi.programming-hero.com/api/phones?search=${searchtext}`
-   
+    
     fetch(url)
     .then(res=>res.json())
     .then(phones=>displayPhone(phones.data.slice(0,6)))
-
+        
+        
 }
 
 const displayPhone=(phones)=>{
@@ -28,7 +34,7 @@ const displayPhone=(phones)=>{
         const parent=document.getElementById('phone-contaniner')
         const div=document.createElement('div')
             div.innerHTML=`
-                <div class="card border mb-3  ">
+                <div class="card border mb-3   ">
                         <div class="phone-pic text-center">
                             <img class="w-100 mb-3" src="${phone.image}" alt="">
                         </div>
