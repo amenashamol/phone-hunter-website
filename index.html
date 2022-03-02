@@ -5,49 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
     <title>Apple-phone</title>
-    <style>
-        #error{
-            display: none;
-        }
-        #spinner{
-            display: none;
-        }
-        #spinner1{
-            display: none;
-        }
-    </style>
+    
 </head>
 <body>
-   <div class="container bg-light">
-         <h2 class="bg-primary text-center w-50 mx-auto py-1 rounded"> Search Favourite Apple-phone  </h2>
-        <div class="input-group mb-2 w-50 mx-auto mt-4">
-            <input id="input-value" type="text" class="form-control" placeholder="phone name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <button onclick="searchPhone()" class="input-group-text bg-primary rounded " id="search-field">searching</button>
-        </div>
+
+   <div class="container bg-light mt-1">
+
+        <!--search phone-->
+
+         <div class="bg-secondary mb-4">
+            <h2 class="bg-primary text-center w-50 mx-auto py-1 rounded text-white "> Search your favourite phone  </h2>
+
+        <!--input field-->
+            <div class="input-group mb-2 w-50 mx-auto mt-4">
+                <input id="input-value" type="text" class="form-control" placeholder="phone name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button onclick="searchPhone()" class="input-group-text bg-primary rounded text-white " id="search-field">search</button>
+            </div>
+
+        <!-- error message -->
+            <h4 id="error" class="text-center w-25 text-white mx-auto bg-danger" >please enter value</h4>
+            <h1 id="no-found" class="text-center w-25 text-white mx-auto bg-danger" > Data not found</h1>
+         </div>
+         
+
+       
+        <!--loading spinner -->
+
         <div  class="d-flex justify-content-center">
             <div id="spinner" class="spinner-border " role="status">
-            
             </div>
-            <span id="spinner1"class="">loading</span>
+            <span id="spinner1"class="">searching</span>
         </div>
         
-        
-        <div class="row" >
-            
+    
+        <!--display section-->
+
+        <div class="row  " >
+
+            <!--display phone-->
             <div class="phone-container row  col-10 text-center ">
-                <h6 id="error" class="text-center w-25 text-danger mx-auto" >please enter correct value</h6>
-                <div id="phone-contaniner" class="row row-cols-lg-3 " >
-          
+                
+                <div id="phone-contaniner" class="row row-cols-lg-3 text-center " >
                 </div>
             </div>
-            
-             <div class="col-2 detail-container">
+
+            <!--display details--> 
+            <div class="col-2 detail-container bg-info">
                 <div id="detail-contaniner" >
-          
                 </div>
-             </div>
+            </div>
             
         </div>
         
