@@ -10,6 +10,7 @@ const searchPhone=()=>{
         document.getElementById('error').style.display='block'
         document.getElementById('spinner').style.display='none'
         document.getElementById('spinner1').style.display='none'
+        document.getElementById("no-found").style.display="none"
     }
     else{
         document.getElementById('error').style.display='none'
