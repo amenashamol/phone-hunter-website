@@ -55,7 +55,7 @@ const loadPhone=(searchtext)=>{
         
 }
 
-//display phone to receive phones data 
+//display phone by receiving phones data 
 
 const displayPhone=(phones)=>{
     
@@ -93,7 +93,7 @@ const details=(info)=>{
     .then(detail=>setDetails(detail.data))
 }
 
-//Set details to receive Id
+//Set details by receiving Id
 
 const setDetails=(info)=>{
   document.getElementById('detail-contaniner').innerHTML=`
@@ -101,19 +101,40 @@ const setDetails=(info)=>{
     <div class=" text-center mb-3 mt-2">
          <img  class=" w-50 text-center " src=" ${info.image}" alt="">
     </div>
+
     <h5 class="text-center "><span class="text-danger">Storage:</span> ${info.mainFeatures.storage}</h5>
     <h5 class="text-center" ><span class="text-danger">Memory:</span> ${info.mainFeatures.memory}</h5>
     <h5 class="text-center"><span class="text-danger">Displaysize:</span> ${info.mainFeatures.displaySize}</h5>
     <h5 class="text-center"><span class="text-danger">Releasedate:</span> ${info.releaseDate?info.releaseDate:'none'}</h5>
     
-    <div class="bg-light">
-        <h4 class="text-center text-primary">Others:</h4>
-        
+    <div class="  bg-light mb-4 mt-4 font-weight: 600 ">
+        <h4 class="text-center text-primary">Sensors:</h4>
+
+        <ul class="list-unstyled   ">
+            <li><span class="text-danger px-2" >0:  </span>   ${info.mainFeatures.sensors[0]}</li>
+            <li><span class="text-danger px-2" >1:  </span>   ${info.mainFeatures.sensors[1]}</li>
+            <li><span class="text-danger px-2" >2:  </span>   ${info.mainFeatures.sensors[2]}</li>
+            <li><span class="text-danger px-2" >3:  </span>   ${info.mainFeatures.sensors[3]}</li>
+            <li><span class="text-danger px-2" >4:  </span>   ${info.mainFeatures.sensors[4]}</li>
+            <li><span class="text-danger px-2" >5:  </span>   ${info.mainFeatures.sensors[5]}</li>
+        </ul>
+    </div>
+    
+    <div class="bg-light mb-4">
+        <h4 class="text-center text-primary font-weight: 600">Others:</h4>
+
         <h5 class="text-center"><span class="text-danger">WLAN:</span> ${info.others.WLAN}</h5>
         <h5 class="text-center"><span class="text-danger">GPS:</span> ${info.others.GPS}</h5>
         <h5 class="text-center"><span class="text-danger">USB:</span> ${info.others.USB}</h5>
     </div>
+
+    
+    
+        
+    
     </div>
   `
 
 }
+
+
